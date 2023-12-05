@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "eGGV2GT5XNTIRnXNB2AZLlFABXLLumYARmK+hPf2eQfFZMFTD4II7qLjMquN6xpYRnCU48Igm272So1waPpKrw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\maria\\source\\repos\\ProgramacionCitas\\ProgramacionCitas\\ProgramacionCitas.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\maria\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,17 @@
+C:\Users\maria\source\repos\ProgramacionCitas\ProgramacionCitas\bin\Debug\net6.0\ProgramacionCitas.exe
+C:\Users\maria\source\repos\ProgramacionCitas\ProgramacionCitas\bin\Debug\net6.0\ProgramacionCitas.deps.json
+C:\Users\maria\source\repos\ProgramacionCitas\ProgramacionCitas\bin\Debug\net6.0\ProgramacionCitas.runtimeconfig.json
+C:\Users\maria\source\repos\ProgramacionCitas\ProgramacionCitas\bin\Debug\net6.0\ProgramacionCitas.dll
+C:\Users\maria\source\repos\ProgramacionCitas\ProgramacionCitas\bin\Debug\net6.0\ProgramacionCitas.pdb
+C:\Users\maria\source\repos\ProgramacionCitas\ProgramacionCitas\obj\Debug\net6.0\ProgramacionCitas.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\maria\source\repos\ProgramacionCitas\ProgramacionCitas\obj\Debug\net6.0\ProgramacionCitas.AssemblyInfoInputs.cache
+C:\Users\maria\source\repos\ProgramacionCitas\ProgramacionCitas\obj\Debug\net6.0\ProgramacionCitas.AssemblyInfo.cs
+C:\Users\maria\source\repos\ProgramacionCitas\ProgramacionCitas\obj\Debug\net6.0\ProgramacionCitas.csproj.CoreCompileInputs.cache
+C:\Users\maria\source\repos\ProgramacionCitas\ProgramacionCitas\obj\Debug\net6.0\ProgramacionCitas.dll
+C:\Users\maria\source\repos\ProgramacionCitas\ProgramacionCitas\obj\Debug\net6.0\refint\ProgramacionCitas.dll
+C:\Users\maria\source\repos\ProgramacionCitas\ProgramacionCitas\obj\Debug\net6.0\ProgramacionCitas.pdb
+C:\Users\maria\source\repos\ProgramacionCitas\ProgramacionCitas\obj\Debug\net6.0\ProgramacionCitas.genruntimeconfig.cache
+C:\Users\maria\source\repos\ProgramacionCitas\ProgramacionCitas\obj\Debug\net6.0\ref\ProgramacionCitas.dll
+C:\Users\maria\source\repos\ProgramacionCitas\ProgramacionCitas\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\maria\source\repos\ProgramacionCitas\ProgramacionCitas\obj\Debug\net6.0\ProgramacionCitas.csproj.AssemblyReference.cache
+C:\Users\maria\source\repos\ProgramacionCitas\ProgramacionCitas\obj\Debug\net6.0\ProgramacionCitas.csproj.CopyComplete
