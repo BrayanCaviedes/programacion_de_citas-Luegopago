@@ -25,6 +25,8 @@ namespace ProgramacionCitas
         private const int DuracionMinima = 30;
         private const int DuracionMaxima = 90;
 
+
+
         private static async Task<List<Cita>> CargarCitasDesdeArchivo(string url)
         {
             try
@@ -45,7 +47,9 @@ namespace ProgramacionCitas
 
         private static int CalcularEspaciosDisponibles(string diaSemana, List<Cita> citasProgramadas)
         {
-            var citasDia = citasProgramadas.FindAll(c => c.Day.Equals(diaSemana, StringComparison.OrdinalIgnoreCase));
+            var citasDia = citasProgramadas
+                .Where(c => c.Day.Equals(diaSemana, StringComparison.OrdinalIgnoreCase))
+                .ToList();
 
             int minutosDisponibles = (HorarioFin - HorarioInicio) * 60;
 
@@ -57,31 +61,32 @@ namespace ProgramacionCitas
                 minutosDisponibles -= Math.Max(0, Math.Min(finEnMinutos, HorarioFin * 60) - Math.Max(inicioEnMinutos, HorarioInicio * 60));
             }
 
+            const int duracionCita = 30; 
             int espaciosTotales = 0;
-            int duracionCita = DuracionMinima;
-            int minutosOcupados = 0;
+            int intervaloInicio = HorarioInicio * 60; 
 
-            for (int i = 0; i < minutosDisponibles; i++)
+            for (int i = intervaloInicio; i <= (HorarioFin * 60) - duracionCita; i += duracionCita)
+            //                 540(9)   ;   <=        990(4:30)                ;            30
             {
-                if (minutosOcupados < duracionCita)
-                {
-                    if (i + duracionCita <= minutosDisponibles)
-                    {
-                        minutosOcupados++;
-                    }
-                    else
-                    {
-                        minutosOcupados = 0;
-                    }
-                }
-                else
+                if (!citasDia.Any(cita => IsCitaEnIntervalo(cita, i, i + duracionCita)))
                 {
                     espaciosTotales++;
-                    minutosOcupados = 0;
                 }
             }
 
             return espaciosTotales;
+        }
+
+
+        // Método auxiliar para verificar si hay una cita programada en el intervalo de tiempo dado
+        private static bool IsCitaEnIntervalo(Cita cita, int inicio, int fin)
+        {
+            int inicioCita = (int)TimeSpan.Parse(cita.Hour).TotalMinutes;
+            int finCita = inicioCita + int.Parse(cita.Duration);
+
+            return inicioCita < fin && finCita > inicio;
+            //          555   < 570 &&  615    >  540
+            //         9:15   < 9:30 && 10:15  >  9:00
         }
 
 
@@ -90,13 +95,24 @@ namespace ProgramacionCitas
         static async Task Main(string[] args)
         {
             string urlArchivo = "https://luegopago.blob.core.windows.net/luegopago-uploads/Pruebas%20LuegoPago/data.json";
-            string diaSemanaConsulta = "lunes"; // Puedes cambiar el día de la semana que deseas consultar
+            string[] diasSemana = { "lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo" };
+            //string diaSemanaConsulta = "viernes"; 
 
             List<Cita> citasProgramadas = await CargarCitasDesdeArchivo(urlArchivo);
 
-            int espaciosDisponibles = CalcularEspaciosDisponibles(diaSemanaConsulta, citasProgramadas);
+            // Iterar sobre todos los días de la semana
+            foreach (var diaSemana in diasSemana)
+            {
+                // Calcular espacios disponibles para el día actual
+                int espaciosDisponibles = CalcularEspaciosDisponibles(diaSemana, citasProgramadas);
 
-            Console.WriteLine($"Espacios disponibles para el {diaSemanaConsulta}: {espaciosDisponibles}");
+                // Mostrar la disponibilidad para el día actual
+                Console.WriteLine($"Espacios disponibles para el {diaSemana}: {espaciosDisponibles}");
+            }
+
+            //int espaciosDisponibles = CalcularEspaciosDisponibles(diaSemanaConsulta, citasProgramadas);
+
+            //Console.WriteLine($"Espacios disponibles para el {diaSemanaConsulta}: {espaciosDisponibles}");
         }
     }
 
